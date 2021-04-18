@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[14]:
+# In[1]:
 
 
 def cipher(str_arg):
@@ -30,7 +30,14 @@ def cipher(str_arg):
             
     print(f"復号化結果:{decrypted}")
 
-cipher("ABCxyz")
+cipher("I am Matsuno")
+
+
+# In[2]:
+
+
+import subprocess
+subprocess.run(['jupyter', 'nbconvert', '--to', 'python', q8.ipynb])
 
 
 # In[ ]:
