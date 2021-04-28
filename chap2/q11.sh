@@ -1,2 +1,2 @@
-#!/bin/sh
+ß#!/bin/sh
 cat popular-names.txt | tr '	' ' '
