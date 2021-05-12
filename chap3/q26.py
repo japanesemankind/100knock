@@ -10,7 +10,7 @@ def remove_mackup_26():
     dic={}
     templates=templates_extraction()
     for k,v in templates.items():
-        dic[k]=re.sub("\'{2,5}'","",v)
+        dic[k]=re.sub("\'{2,5}","",v)
     return dic
 if __name__ == "__main__":
     dic=remove_mackup_26()

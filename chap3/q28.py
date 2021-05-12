@@ -11,6 +11,7 @@ def remove_mackup():
     for k,v in remove_mackup_27().items():
         
         #htmlタグの除去
+        #FIXME: 正規表現の範囲が広すぎるかも
         dictionary[k]=re.sub("<(.+?)>","",v)
         
         #ファイルリンクの除去

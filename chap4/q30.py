@@ -14,9 +14,12 @@ def parse_mecab():
             
             fields = line.split('\t')
             if len(fields) == 2 or ( fields[0] != "" and  fields[0] == "EOS\n"):  # 文頭以外の空白と改行文字はスキップ
+            # if not len(fields) == 2 or ( fields[0] != "" and  fields[0] == "EOS\n"):
+            #    continue
                 
                 if line != 'EOS\n':  # 文末以外であれば
-                    
+            # if line == 'EOS\n':
+            #    continue
                     attr =  fields[1].split(',')#形態素解析はカンマ区切り
                     
                     if(attr[6]!="*\n"):#改行記号を無視
