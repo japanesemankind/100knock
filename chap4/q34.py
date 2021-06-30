@@ -30,6 +30,6 @@ for sentence in sentences:
             
 # 確認
 print(f"種類: {len(ans)}\n")
-for i in range(10):
+for i in range(30):
     print(ans.pop())
 

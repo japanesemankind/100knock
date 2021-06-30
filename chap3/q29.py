@@ -17,8 +17,15 @@ def get_file():
     #prop:取得する構成要素
     #iiprop:どのファイル情報を取得するか
     #format:出力フォーマット
-    url = 'https://commons.wikimedia.org/w/api.php?action=query&titles=File:' +file_name+ '&prop=imageinfo&iiprop=url&format=json'
-    result = requests.get(url)
+    url = 'https://commons.wikimedia.org/w/api.php'
+    params = {
+        'action': 'query',
+        'titles': 'File: ' + file_name,
+        'prop': 'imageinfo',
+        'iiprop': 'url',
+        'format': 'json'
+    }
+    result = requests.get(url,params=params)
     
     #取得したjsonファイルをテキスト形式に変換し、url部分を取得
     return re.search(r'"url":"(.+?)"', result.text).group(1)
