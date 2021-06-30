@@ -41,7 +41,7 @@ with open("q45.txt", "w") as f:
                     if len(cases) > 0:
                         #一旦集合に入れて重複を除去し、その後リストに直してソートする
                         cases = sorted(list(set(cases)))
-                        cases_str="".join(cases)
+                        cases_str=" ".join(cases)
                         line = f"{morpheme.base}\t{cases_str}"
                         print(line, file=f)
                         
