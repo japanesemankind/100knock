@@ -1,0 +1,70 @@
+# toy_en_de.yaml
+
+## Where the samples will be written
+save_data: test3/run/model
+## Where the vocab(s) will be written
+src_vocab: test3/run/src.vocav
+tgt_vocab: test3/run/tgt.vocab
+# Prevent overwriting existing files in the folder
+overwrite: False
+
+# Corpus opts:
+data:
+    corpus_1:
+        path_src: kftt-data-1.0/data/tok/my_train.ja
+        path_tgt: kftt-data-1.0/data/tok/my_train.en
+    valid:
+        path_src: kftt-data-1.0/data/tok/my_dev.ja
+        path_tgt: kftt-data-1.0/data/tok/my_dev.en
+
+src_vocab: test3/run/src.vocab
+tgt_vocab: test3/run/tgt.vocab
+
+# Batching
+queue_size: 10000
+bucket_size: 32768
+batch_type: "tokens"
+batch_size: 4096
+valid_batch_size: 8
+max_generator_batches: 2
+accum_count: [4]
+accum_steps: [0]
+
+
+#model
+encoder_type: transformer
+decoder_type: transformer
+position_encoding: true
+enc_layers: 6
+dec_layers: 6
+heads: 8
+rnn_size: 512
+word_vec_size: 512
+transformer_ff: 2048
+dropout_steps: [0]
+dropout: [0.1]
+attention_dropout: [0.1]
+
+# Optimization
+model_dtype: "fp32"
+optim: "adam"
+learning_rate: 2
+warmup_steps: 8000
+decay_method: "noam"
+adam_beta2: 0.998
+max_grad_norm: 0
+label_smoothing: 0.1
+param_init: 0
+param_init_glorot: true
+normalization: "tokens"
+
+log_file: test3/run/train_log.txt
+# Train on a single GPU
+world_size: 1
+gpu_ranks: [0]
+
+# Where to save the checkpoints
+save_model: test3/run/model
+save_checkpoint_steps: 5000
+train_steps: 200000
+valid_steps: 10000

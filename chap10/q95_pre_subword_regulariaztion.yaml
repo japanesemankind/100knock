@@ -1,0 +1,32 @@
+# toy_en_de.yaml
+
+## Where the samples will be written
+save_data: test3/run/example
+## Where the vocab(s) will be written
+src_vocab: test3/run/example.vocab.src
+tgt_vocab: test3/run/example.vocab.tgt
+# Prevent overwriting existing files in the folder
+overwrite: False
+
+# Corpus opts:
+data:
+    corpus_1:
+        path_src: my_kftt/data/tok/kyoto-train.ja
+        path_tgt: my_kftt/data/tok/kyoto-train.en
+    valid:
+        path_src: my_kftt/data/tok/kyoto-dev.ja
+        path_tgt: my_kftt/data/tok/kyoto-dev.en
+
+src_vocab: test3/run/example.vocab.src
+tgt_vocab: test3/run/example.vocab.tgt
+# Train on a single GPU
+world_size: 1
+gpu_ranks: [0]
+log_file : test3/log.txt
+# Where to save the checkpoints
+save_model: toy-ende/run/model
+save_checkpoint_steps: 5000
+train_steps: 35000
+valid_steps: 5000
+
+
